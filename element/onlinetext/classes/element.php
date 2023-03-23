@@ -18,7 +18,7 @@
  * This file contains the customcert element onlinetext's core interaction API.
  *
  * @package    customcertelement_onlinetext
- * @copyright  2013 Mark Nelson <markn@moodle.com>
+ * @copyright  
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,13 +28,6 @@ use core_user\fields;
 
 defined('MOODLE_INTERNAL') || die();
 
-/**
- * The customcert element onlinetext's core interaction API.
- *
- * @package    customcertelement_onlinetext
- * @copyright  2013 Mark Nelson <markn@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class element extends \mod_customcert\element {
 
     /**
@@ -81,21 +74,20 @@ class element extends \mod_customcert\element {
         }
        	// If we are previewing this certificate then just show a demonstration grade.
        	if ($preview) {
-            $assign_name = $this->get_grade_item_name();
-            $tcc = $assign_name." onlinetext";
+        	$assign_name = $this->get_grade_item_name();
+        	$tcc = $assign_name." onlinetext";
        	} else {
         	     
         	$courseid = \mod_customcert\element_helper::get_courseid($this->get_id());
         	$userid = $user->id;
-     			global $DB;
+     		global $DB;
      		
-     			$sql = "SELECT onlinetext FROM {assignsubmission_onlinetext} 
-									WHERE assignment IN (SELECT id FROM {assign} WHERE course=:courseid AND name=:name) 
-									AND submission IN (SELECT id FROM {assign_submission} WHERE userid=:userid)";
+     		$sql = "SELECT onlinetext FROM {assignsubmission_onlinetext} 
+			WHERE assignment IN (SELECT id FROM {assign} WHERE course=:courseid AND name=:name) 
+			AND submission IN (SELECT id FROM {assign_submission} WHERE userid=:userid)";
 				
-					$assign_name = $this->get_grade_item_name();
-        
-					$tcc = $DB->get_field_sql($sql, ['courseid' => $courseid, 'userid' => $userid, 'name' => $assign_name]);
+		$assign_name = $this->get_grade_item_name();
+		$tcc = $DB->get_field_sql($sql, ['courseid' => $courseid, 'userid' => $userid, 'name' => $assign_name]);
        	}        
        		\mod_customcert\element_helper::render_content($pdf, $this, $tcc);
     }
