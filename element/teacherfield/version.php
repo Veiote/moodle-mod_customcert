@@ -18,7 +18,7 @@
  * This file contains the version information for the teacherfield plugin.
  *
  * @package    customcertelement_teacherfield
- * @copyright  2013 Mark Nelson <markn@moodle.com>
+ * @copyright  
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
