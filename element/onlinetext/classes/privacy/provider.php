@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy Subsystem implementation for customcertelement_teacherfield.
+ * Privacy Subsystem implementation for customcertelement_onlinetext.
  *
  * @package    customcertelement_teacherfield
- * @copyright  2018 Mark Nelson <markn@moodle.com>
+ * @copyright  
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -26,12 +26,6 @@ namespace customcertelement_onlinetext\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
-/**
- * Privacy Subsystem for customcertelement_teacherfield implementing null_provider.
- *
- * @copyright  2018 Mark Nelson <markn@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class provider implements \core_privacy\local\metadata\null_provider {
 
     /**
