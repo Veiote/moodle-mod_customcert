@@ -18,7 +18,7 @@
  * This file contains the customcert element teacherfield's core interaction API.
  *
  * @package    customcertelement_teacherfield
- * @copyright  2013 Mark Nelson <markn@moodle.com>
+ * @copyright  
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,13 +28,6 @@ use core_user\fields;
 
 defined('MOODLE_INTERNAL') || die();
 
-/**
- * The customcert element teacherfield's core interaction API.
- *
- * @package    customcertelement_teacherfield
- * @copyright  2013 Mark Nelson <markn@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class element extends \mod_customcert\element {
 
     /**
@@ -43,9 +36,9 @@ class element extends \mod_customcert\element {
      * @param \MoodleQuickForm $mform the edit_form instance
      */
     public function render_form_elements($mform) {
-    	  //Get the teachers list
-    	  $mform->addElement('select', 'teacher', get_string('teacher', 'customcertelement_teacherfield'),
-        		$this->get_list_of_teachers());
+        //Get the teachers list
+    	$mform->addElement('select', 'teacher', get_string('teacher', 'customcertelement_teacherfield'),
+        $this->get_list_of_teachers());
         $mform->addHelpButton('teacher', 'teacher', 'customcertelement_teacherfield');
         
         // Get the user profile fields.
